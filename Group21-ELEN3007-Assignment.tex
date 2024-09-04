@@ -5,10 +5,10 @@
 
 
 \pdfinfo{
-/Title (REPORT TEMPLATE 2024)
+/Title (ELEN3007-Assignment-2024)
 /Author (Kgadile "Naar-Kie" Masemola)
 /CreationDate (D:202303151636)
-/ModDate (D:202408290530)
+/ModDate (D:202409040530)
 /Subject (ELEN3XXX Paper Format, 2024)
 %/Keywords (ELEN3009, paper, project)
 }
@@ -24,6 +24,26 @@ Position in an Enclosed Area}}
 \maketitle
 
 \section*{Introduction and Background}
+The assignment consideres that the position of $\beta$ is known, and after recording \emph{N} flashes at positions $x_k$, and inferes or answers the question: \emph{where is the robot}?\\
+The azimuth angles at which the flashes are emmited, at random intervals, are quantified by $\theta_k$ which is uniformly distributed distributed. Since $\theta_k$ is uniformly distributed, we expect more recordings of $x_k$ near or around $\alpha$ which displays the vertical position underwhich the robot is expected to be. The mean value of $x_k$ is distance away from the assumed value of $\alpha$.
+
+\subsection*{Assessment Criterion}
+\begin{itemize}
+	\item Geometry setup of the problem
+		\begin{figure}[h]
+        		\centering
+        		\includegraphics[scale=0.5]{elen3007assignfig.png} 
+        		\caption{Geometry setup of the problem}
+        \end{figure}
+	\item $\theta_k$ assumed to be uniform, azimuth angles lying between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$, it has the PDF:
+		\begin{equation}
+			p(\theta_k | \alpha, \beta, B) = \frac{1}{\pi}
+		\end{equation}
+	\item In order to relate the readings of $x_k$ to $\theta_k$, using elementary trigonometry, the derived expression is
+		\begin{equation}
+			\beta tan \theta_k = x_k - \alpha
+		\end{equation}
+\end{itemize}
 
 \section*{Assignment Answers}
 \begin{enumerate}
