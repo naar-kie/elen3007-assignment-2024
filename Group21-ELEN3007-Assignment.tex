@@ -69,6 +69,7 @@ The azimuth angles at which the flashes are emmited, at random intervals, are qu
 	\item since we can't observe $\theta$, we transform to $x_k$. so that means we transform and drop the random variable $\Theta = \theta_k \Rightarrow X = x_k$  and it's PDF(\emph{prior}?) $p(\theta_k | \alpha, \beta, B)$ (given) to $p(x_k | \alpha, \beta, B)$ (proved)
 	\item is $\alpha$ supposed to be assumed? if, then $\alpha$ is a constant and we want to find how far off we are from it as given by the measurements (observed data points)
 	\item So, the $\alpha$ and $\beta$ are supposed to have a joint distribution right? and so after we observe $\beta = b$, we condistion $\alpha$ that is $p_{\alpha = a | \beta = b}$. But we are also given data whhich is $\{x_k\}^N _{k = 1}$ to infere the robot's position expressed by the posterior PDF $p_{\alpha | \{x_k\}^N _{k = 1}}(\alpha = a)$
+	\item $\alpha$ and $\beta$, are they independent? but $\theta$ won't!
 \end{itemize}
 
 \section{? Questions}
@@ -91,6 +92,8 @@ The azimuth angles at which the flashes are emmited, at random intervals, are qu
 	\begin{enumerate}
 		\item do we need to apply maximum likelyhood solutions for the mean of data?
 		\item if (or not) then the goal is to estimate the posterior mean? which can be given by a compromise between the prior mean $\mu_0$ and the maximum likelihood solution $\mu_{ML}$?
+		\item are integrals or derivatives or both involved in finding the post-PDF? (marginal PDF)
+		\item do we use Maximum-A-Posterior (MAP) to estimate the range or point estimate of $\alpha$?
 	\end{enumerate}
 
 
