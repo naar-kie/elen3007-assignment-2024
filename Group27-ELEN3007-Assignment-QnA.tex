@@ -1,11 +1,11 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage{fullpage}
 \usepackage{graphicx}
-\usepackage{eqnarray,amsmath}
+\usepackage{eqnarray,amsmath, amssymb}
 
 
 \pdfinfo{
-/Title (ELEN3007-Assignment-2024)
+/Title (ELEN3007-Assignment-QnA-2024)
 /Author (Kgadile "Naar-Kie" Masemola)
 /CreationDate (D:202303151636)
 /ModDate (D:202409040530)
@@ -13,11 +13,11 @@
 %/Keywords (ELEN3009, paper, project)
 }
 
-\title{ELEN3007A Group \underline{27} - Assignment 2024: \\ 
+\title{ELEN3007A Group \underline{27} - Assignment 2024 (Consultation Questions): \\ 
 \large \emph{Application of Bayes’ Theorem for Locating a Robot’s
 Position in an Enclosed Area}}
 \author{Kgadile E Masemola (876729)}
-\date{September 13, 2024}
+\date{September 11, 2024}
 
 \begin{document}
 \maketitle
@@ -44,24 +44,6 @@ The azimuth angles at which the flashes are emmited, at random intervals, are qu
 		\end{equation}
 	\item $x_k$ is independent and identically distributed from normal distribution.
 \end{itemize}
-
-\section*{Equations and Notations}
-\begin{eqnarray}
-	p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Omega, \beta, B}(\theta)\\
-	p(x_k |\alpha, \beta, B) = f_{X | \Omega, \beta, B}(x_k | \Omega = \alpha, \beta = b )
-\end{eqnarray}
-
-\section*{Assignment Answers}
-\begin{enumerate}
-  \item The given setup of the problem assumes that the photodetectors are placed on the x-axis above which the robot is located. Therefore, the signal comes from one side of the axis. This thus limits the range of the detectors to be within the range of $\pi$ (that is $-\frac{\pi}{2}$ to $\frac{\pi}{2}$). 
-  \item 
-  \item Etc.
-\end{enumerate}
-
-\section*{Conclusion}
-
-\newpage
-\appendix
 
 \section{? Understanding the Assignment}
 \begin{itemize}
@@ -94,6 +76,47 @@ The azimuth angles at which the flashes are emmited, at random intervals, are qu
 		\item are integrals or derivatives or both involved in finding the post-PDF? (marginal PDF)
 		\item do we use Maximum-A-Posterior (MAP) to estimate the range or point estimate of $\alpha$?
 	\end{enumerate}
+
+\newpage
+\appendix
+\section{Consultation Answerers}
+
+
+\subsection*{Understanding the Assignment ?}
+\begin{itemize}
+ \item Yes with the following Equations and Notations: 
+ 	\begin{eqnarray}
+		p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Omega, \beta, B}(\theta)\\
+		p(x_k |\alpha, \beta, B) = f_{X | \Lambda, \mathfrak{B}, B}(\, \cdot \, | \alpha, \beta)\\
+		\Lambda (\cdot) = \alpha;\: \mathfrak{B}(\cdot) = \beta ; \: X(\cdot) = x_k; \: \Theta ( \cdot) = \theta_k 
+	\end{eqnarray}	
+	\item no, see answer below
+	\item yes, sounds solid
+	\item yes they have to be.. what do you think otherwise?
+\end{itemize}
+
+\subsection*{Questions ?}
+\begin{enumerate}
+	\item yes, it is a prior (marginal) conditional PDF
+	\item yes, derivived from the above conditional PDF
+	\item yes, you can assume your values and compare as per question
+	\item yes, the notation is correct but $f_{X | \Omega, \beta, B}( \, \cdot \, | \alpha, \beta = b)$, where $b = constant$
+	\item yes, think some more about the proportionality constant
+	\item yes
+	\item no, the $\alpha \neq 0$.. phela this assignment point is to find or estimate the value of $\alpha$. but somewhat yes, you can I guess use $x_k \approx \mu_x$
+	\item use 30 measurements, but you can use random intervals of $x_{k=n}$ and see how this changes
+	\item yes but don't use the report style, use the homework style as per announcement. professional in this instance means typed
+	\item for demonstration, just the Matlab code in the appendix. BUT with meaningful comments. Still use the plots to estimate $\alpha = x$-position
+\end{enumerate}
+
+\subsection*{other Questions ?}
+\begin{enumerate}
+	\item yes, sounds like a good idea if you know whatever it means
+	\item sounds solid
+	\item the intergral is the proportionality constant, do you really need it? no? normalisation?
+	\item not really maybe?
+	
+\end{enumerate}
 
 
 \end{document}
