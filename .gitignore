@@ -10,6 +10,10 @@
 *.aux
 *.log
 *.gz
+*.bbl
+*.blg
+*.dvi
+*.ps
 
 # Compiled Object files
 *.slo
