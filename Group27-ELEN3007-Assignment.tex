@@ -128,7 +128,12 @@ located inside a confined square region of size $10$m $\times$ $10$m. Demonstrat
 estimator by inferring the robot’s $x$-position from the data/measurements $\{ x_k \}^{200} _{k = 1}$ in \emph{BayesData.mat}, with the robot’s $y$-position 4.5 m. Plot the Bayes posterior distribution for the first $N = 1, 2, 5$ and $30$ measurements. For this data, what is your best $x$-position estimate?
 
 \subsection*{\underline{Solution 7:}}
-,
+The Bayesian position inference scheme MATLAB code is attached in Appendix A. The plots are attached in Appendix B as Figure 2 \& 3. The scheme tests the first $N = 1,\; 2, \; 5, and \; 30$. Case 1 is for the first points inside that are detected inside the $10 \times 10$ box are considered. Case 2 does not have restrictions and this uses the first values.\\ \\
+It is noticed that when points outside the box, the estimate $\alpha \approx 5.85$ which is within the box at, close the centre. However, when all points are considered, the mean estimates $\alpha \approx 10.16$ for $N = 30$. But strangely this is outside the box.
+In comparing the distribution for the different $N$-measurements, the distribution seems to move as more measurements are known. \\ \\
+Maximum likelyhood estimate (MLE) solution was applied to the data $\{ x_k \}^{200} _{k = 1}$, attached in Appendix C, and the estimation of $\alpha \approx 7.2287$. Comparing this value to posterior-PDF values inside the box (Figure 2) for N = 2 \& 30, the approximate value of $\alpha$ moves further away from the MLE value.\\\\
+After conducting this assignment, we conclude that: 1) The posterior distribution provides a way to quantify the uncertainty in the robot's position estimate. Instead of providing a single “best guess,” Bayesian inference offers a probabilistic distribution over all possible positions, allowing for a richer representation of uncertainty.; 2) The number of measurements significantly affects the shape of the posterior distribution. The more data we have, the better your estimates; 3) In contrast to maximum likelihood estimation (MLE), which finds the single parameter value that maximizes the likelihood, Bayesian inference provides a full posterior distribution, reflecting a range of possible outcomes.\\ \\
+After this analyis, the best estimate of $\alpha$ is $\approx 5.85568$ as obtained from Posterior Infererence for points inside the box and $N = 30$. See Figure 2, Appendix B. $\blacksquare$
 
 \section{QUESTION 8:}
 The notation presented above, deliberately does \emph{not} follow the conventions your Probs
@@ -234,7 +239,49 @@ end
 
 \newpage
 \section{Appendix B. - Matlab Scheme Plots}
-	Plots
 
+\begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.2]{q07pdfinbox.jpg} 
+        \caption{Bayes' Inference Scheme Plot of the PDF for points inside the box}
+\end{figure}	
+
+\begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.2]{q07pdfoutbox.jpg} 
+        \caption{Bayes' Inference Scheme Plot of the PDF for all points}
+\end{figure}	
+
+\newpage
+\section{Appendix C. - Maximul Likelyhood Estimation Scheme}
+\begin{lstlisting}[language=Matlab,
+                   numbers=left,
+                   basicstyle=\small,
+                   stepnumber=1,
+                   numbersep=10pt,
+                   tabsize=2,
+                   showspaces=false,
+                   showstringspaces=false]
+%%%%%%%%%Estimating alpha using Maximum Likelyhood Solution%%%%%%%%%%%%
+%numbat24.04%
+%
+% Load the data from BayesData.mat
+load('BayesData.mat');
+
+% Given y-position (beta)
+beta = 4.5;
+
+% Define the log-likelihood function so that product becomes a sum
+log_likelihood = @(alpha) sum(log(beta ./ (pi * (beta^2 + (x - alpha).^2))));
+
+% Find the alpha that maximizes the log-likelihood, 
+% use fminsearch to minimize the negative log-likelihood, (equivalent to
+% maximizing the likelihood)
+alpha_mle = fminsearch(@(alpha) -log_likelihood(alpha), mean(x));
+
+% Display the MLE result
+disp(['Maximum Likelihood Estimate for alpha: ', num2str(alpha_mle)]);
+%% alpha = 7.2287 %%
+\end{lstlisting}
 
 \end{document}
