@@ -101,8 +101,19 @@ Finally derive an expression for $p(\alpha | \{x_k\}^N _{k = 1}, \beta, B)$. (St
 Assumptions:
 \begin{itemize}
 	\item The prior PDF is given as $f_{\Theta|\Lambda, \mathfrak{B},B}(\cdot) = \frac{1}{\pi}$. And using the transformation of random variables in \hyperref[sec:proof]{\textbf{2}}  becomes equation (6).
-	\item The measurements $\{x_k\}^N _{k = 1}$ 
+	\item The measurements $\{x_k\}^N _{k = 1}$ are input to the random variable $X_k(\cdot) = \{x_k\}^N _{k = 1}$
+	\item $\{x_k\}^N _{k = 1}$ are independent, and continous.. thus $X_k(\cdot)$ is a continuous random variable.
+	\item The normalisation/marginal probability of observed data/ proportionality factor $f_X(x_k) \approx weird \; integral \backsimeq constant$ in eqaution (7) is discarded $\because$ it does not depend on $\alpha$. It just a scalling factor which doesn't affect the peak point $\alpha$. 
+	\item So we can use the Posterior density $\varpropto$ Likelyhood $\times$ Prior Density \cite{stanford_lecture20}, where the distributions are infered in (10):
+		\begin{equation}
+			f_{\Lambda | X, \mathfrak{B},B} (\, \cdot \, | x_k, \beta) \varpropto f_{X | \Lambda, \mathfrak{B}, B}(\, \cdot \, | \alpha, \beta) f_\Lambda(\alpha)
+		\end{equation}
 \end{itemize}
+Then the joint distribution of $p(\alpha | \{x_k\}^N _{k = 1}, \mathfrak{B}, B)$:
+\begin{equation}
+	f_{\Lambda | X_k, \mathfrak{B},B} (\alpha | x_1,...,x_N, \beta) = \prod^N _{k = 1} \frac{\beta}{\pi (\beta^2 + (x_k - \alpha)^2)} \times \aleph \; \blacksquare
+\end{equation}
+$\aleph$ is the proportionality factor which may be ignored.
 
 \section{QUESTION 6:}
 Explain how one obtains the $x$-position of the robot from the result in (5.).
