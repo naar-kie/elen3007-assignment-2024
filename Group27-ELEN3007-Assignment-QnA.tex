@@ -1,0 +1,122 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{eqnarray,amsmath, amssymb}
+
+
+\pdfinfo{
+/Title (ELEN3007-Assignment-QnA-2024)
+/Author (Kgadile "Naar-Kie" Masemola)
+/CreationDate (D:202303151636)
+/ModDate (D:202409040530)
+/Subject (ELEN3XXX Paper Format, 2024)
+%/Keywords (ELEN3009, paper, project)
+}
+
+\title{ELEN3007A Group \underline{27} - Assignment 2024 (Consultation Questions): \\ 
+\large \emph{Application of Bayes’ Theorem for Locating a Robot’s
+Position in an Enclosed Area}}
+\author{Kgadile E Masemola (876729)}
+\date{September 11, 2024}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction and Background}
+The assignment consideres that the position of $\beta$ is known, and after recording \emph{N} flashes at positions $x_k$, and inferes or answers the question: \emph{where is the robot}?\\
+The azimuth angles at which the flashes are emmited, at random intervals, are quantified by $\theta_k$ which is uniformly distributed distributed. Since $\theta_k$ is uniformly distributed, we expect more recordings of $x_k$ near or around $\alpha$ which displays the vertical position underwhich the robot is expected to be. The mean value of $x_k$ is distance away from the assumed value of $\alpha$.
+
+\subsection*{Assignment Criterion}
+\begin{itemize}
+	\item Geometry setup of the problem
+		\begin{figure}[h]
+        		\centering
+        		\includegraphics[scale=0.5]{elen3007assignfig.png} 
+        		\caption{Geometry setup of the problem}
+        \end{figure}
+	\item $\theta_k$ assumed to be uniform, azimuth angles lying between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$, it has the PDF:
+		\begin{equation}
+			p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Omega, \beta, B}( \theta |\alpha) = \frac{1}{\pi}
+		\end{equation}
+	\item In order to relate the readings of $x_k$ to $\theta_k$, using elementary trigonometry, the derived expression is
+		\begin{equation}
+			\beta tan \theta_k = x_k - \alpha
+		\end{equation}
+	\item $x_k$ is independent and identically distributed from normal distribution.
+\end{itemize}
+
+\section{? Understanding the Assignment}
+\begin{itemize}
+	\item since we can't observe $\theta$, we transform to $x_k$. so that means we transform and drop the random variable $\Theta = \theta_k \Rightarrow X = x_k$  and it's PDF(\emph{prior}?) $p(\theta_k | \alpha, \beta, B)$ (given) to $p(x_k | \alpha, \beta, B)$ (proved)
+	\item is $\alpha$ supposed to be assumed? if, then $\alpha$ is a constant and we want to find how far off we are from it as given by the measurements (observed data points)
+	\item So, the $\alpha$ and $\beta$ are supposed to have a joint distribution right? and so after we observe $\beta = b$, we condistion $\alpha$ that is $p_{\alpha = a | \beta = b}$. But we are also given data whhich is $\{x_k\}^N _{k = 1}$ to infere the robot's position expressed by the posterior PDF $p_{\alpha | \{x_k\}^N _{k = 1}}(\alpha = a)$
+	\item $\alpha$ and $\beta$, are they independent? but $\theta$ won't!
+\end{itemize}
+
+\section{? Questions}
+	\begin{enumerate}
+
+		\item is this the marginal PDF? $p(\theta_k | \alpha, \beta, B) = \frac{1}{\pi}$
+		\item is this the conditional distribution? $p(x_k | \alpha, \beta, B) = \frac{\beta}{\pi (\beta^2 + (x_k - \alpha)^2)}$
+		\item in order to plot $p(\alpha | x_k, \beta, B)$, should we assume our own values for the parameters $\alpha$ and $\beta$?
+		\item is this notation correct? $ p(x_k | \alpha, \beta, B) = f_{X | \Omega, \beta, B}(x_k | \alpha, \beta = b)$, where $b = constant$
+		\item if then is posterior notation? $p(\alpha | x_k, \beta, B) = f_{\Omega | X, \beta, B}(\alpha) = \frac{\beta}{\pi (\beta^2 + (x_k - \alpha)^2)} \times \aleph$, where $\aleph$ is a \emph{proportional constant} of bayes transformation to posterior PDF
+		\item and is? $p(\alpha | \{x_k\}^N _{k = 1}, \beta, B) = f_{\Omega | X, \beta, B}(\alpha | x_1,...,x_n, \beta = b ) = \prod^N _{k = 1} \frac{\beta}{\pi (\beta^2 + (x_k - \alpha)^2)} \times \aleph $
+		\item is the $x$-position a matter of how far from the normal(that is $\alpha = 0 = x_0 = 0$ to $x_k = \mu_x$? is this the meaningful conclusion?
+		\item because accordring to question 7, it says estimate $x$-position using 30 measurements. what are the other extra data points for? demo?  
+		\item is this professional style report clear? and what is meant by effective data representation(graphs of distro. with different no. of N)? \emph{because} is (sub-\&)heading numbering necessary?		
+		\item what does the demonstration require? effect of \emph{different number}(N) of observed data points?
+		
+	\end{enumerate}
+	
+\section{? other Questions}
+	\begin{enumerate}
+		\item do we need to apply maximum likelyhood solutions for the mean of data?
+		\item if (or not) then the goal is to estimate the posterior mean? which can be given by a compromise between the prior mean $\mu_0$ and the maximum likelihood solution $\mu_{ML}$?
+		\item are integrals or derivatives or both involved in finding the post-PDF? (marginal PDF)
+		\item do we use Maximum-A-Posterior (MAP) to estimate the range or point estimate of $\alpha$?
+	\end{enumerate}
+
+\newpage
+\appendix
+\section{Consultation Answerers}
+
+
+\subsection*{Understanding the Assignment ?}
+\begin{itemize}
+ \item Yes with the following Equations and Notations: 
+ 	\begin{eqnarray}
+		p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Omega, \beta, B}(\theta)\\
+		p(x_k |\alpha, \beta, B) = f_{X | \Lambda, \mathfrak{B}, B}(\, \cdot \, | \alpha, \beta)\\
+		\Lambda (\cdot) = \alpha;\: \mathfrak{B}(\cdot) = \beta ; \: X(\cdot) = x_k; \: \Theta ( \cdot) = \theta_k 
+	\end{eqnarray}	
+	\item no, see answer below
+	\item yes, sounds solid
+	\item yes they have to be.. what do you think otherwise?
+\end{itemize}
+
+\subsection*{Questions ?}
+\begin{enumerate}
+	\item yes, it is a prior (marginal) conditional PDF
+	\item yes, derivived from the above conditional PDF
+	\item yes, you can assume your values and compare as per question
+	\item yes, the notation is correct but $f_{X | \Omega, \beta, B}( \, \cdot \, | \alpha, \beta = b)$, where $b = constant$
+	\item yes, think some more about the proportionality constant
+	\item yes
+	\item no, the $\alpha \neq 0$.. phela this assignment point is to find or estimate the value of $\alpha$. but somewhat yes, you can I guess use $x_k \approx \mu_x$
+	\item use 30 measurements, but you can use random intervals of $x_{k=n}$ and see how this changes
+	\item yes but don't use the report style, use the homework style as per announcement. professional in this instance means typed
+	\item for demonstration, just the Matlab code in the appendix. BUT with meaningful comments. Still use the plots to estimate $\alpha = x$-position
+\end{enumerate}
+
+\subsection*{other Questions ?}
+\begin{enumerate}
+	\item yes, sounds like a good idea if you know whatever it means
+	\item sounds solid
+	\item the intergral is the proportionality constant, do you really need it? no? normalisation?
+	\item not really maybe?
+	
+\end{enumerate}
+
+
+\end{document}
