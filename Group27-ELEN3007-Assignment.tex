@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{eqnarray,amsmath, amssymb}
 \usepackage{bookmark}
+\usepackage{hyperref}
 
 \usepackage{listings}
 \usepackage{changepage}
@@ -10,15 +11,16 @@
 \makeatletter
 \renewcommand\@seccntformat[1]{}
 \makeatother
-\pdfinfo{
-/Title (ELEN3007-Assignment-2024)
-/Author (Kgadile "Naar-Kie" Masemola)
-/CreationDate (D:202303151636)
-/ModDate (D:202409040530)
-/Subject (ELEN3XXX Paper Format, 2024)
-%/Keywords (ELEN3009, paper, project)
-}
+\hypersetup{pdfinfo={
+Title = {ELEN3007-Assignment-2024},
+Author = {Kgadile "Naar-Kie" Masemola},
+CreationDate = {D:202409120836},
+%ModDate = {D:202409040530},
+Subject = {ELEN3XXX Paper Format, 2024}
+%/Keywords (ELEN3007, naar_kie, paper, project)
+}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{ELEN3007A Group \underline{27} - Assignment 2024: \\ 
 \large \emph{Application of Bayes’ Theorem for Locating a Robot’s
@@ -40,13 +42,20 @@ Prove that
 	p(x_k | \alpha, \beta, B) = \frac{\beta}{\pi (\beta^2 + (x_k - \alpha)^2)}
 \end{equation}
 \subsection{Solution 2:}
-,
+Using the relation $x_k = \alpha + \beta tan \theta_k$ (given in the brief) and the prior PDF $p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Lambda, \beta, B}(\theta) = \frac{1}{\pi}$ and the transformation of random variables (notations for random variables defined \hyperref[sec:notation]{Solution 8})
 
 \section{QUESTION 3:}
 Plot $p(x_k | \alpha, \beta, B)$ and then relate its width at half maximum to the parameters of the PDF.
 
 \subsection{Solution 3:}
-,
+The plot of the PDF $ p(x_k | \alpha, \beta, B) \Rightarrow f_{X | \Lambda, \beta, B}(x_k | \alpha, \beta = b)$ is shown in Figure 1 below. The \emph{parameters} are chosen to be $\alpha = 4; \beta = 2$ for $\{x_k \}^ {10} _{k = -10}$. It shows that the maximum value is when $x_k = 4 = \alpha$. At half maximum of \emph{these} paramaters, the width at half maximum of the distribution is $4 = 2 \beta$, half maximum height is $y = 0.1591536$.
+
+\begin{figure}
+        \centering
+        \includegraphics[scale=0.16]{q03pdfplot.jpg} 
+        \caption{Plot of the PDF $p(x_k | \alpha, \beta, B)$}
+\end{figure}
+
 
 \section{QUESTION 4:}
 Derive the expression for $p(\alpha | x_k, \beta, B)$.
@@ -79,6 +88,7 @@ The notation presented above, deliberately does \emph{not} follow the convention
 lecturer introduced. Throughout your assignment, strictly use the notation prescribed for
 use in Probs.
 \subsection{Solution 8:}
+\label{sec:notation}
 Yes with the following Equations and Notations: 
  	\begin{eqnarray}
 		p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Omega, \beta, B}(\theta)\\
@@ -90,7 +100,7 @@ Yes with the following Equations and Notations:
 Professional report with clear and effective data representation. The report must not have
 a title page and is not allowed to exceed 5 pages in length.
 \subsection{Solution 9:}
-The report is presented in homework assignment form(statement and solution). The following reference materials have been used: \cite{manuf}
+The report is presented in homework assignment form(statement and solution). Additionally, the following reference materials have been consulted for the assignment: \cite{leon2017probability}, \cite{bishop2006pattern}
 
 \section{(Bonus) QUESTION 10:}
 Infer both the $x$-position as well as the $y$-position of the robot. Estimate both $\alpha$ and $\beta$ for the PDF in Eq. (1).
