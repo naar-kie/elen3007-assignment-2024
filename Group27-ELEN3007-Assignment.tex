@@ -43,7 +43,7 @@ Prove that
 \end{equation}
 \subsection*{\underline{Solution 2:}}
 \label{sec:proof}
-Using the relation $x_k = \alpha + \beta \tan \theta_k$ (given in the brief \cite{vanWyk2024}) and the prior PDF $p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Lambda, \beta, B}(\cdot) = \frac{1}{\pi}$ and the transformation of random variables (notations for random variables defined \hyperref[sec:notation]{Solution 8}). The change of variables  $x = g(y) \Rightarrow \theta_k = g(x_k)$. The function $f(\theta)$ becomes $\tilde{f} = f(g(x))$. The given PDF $f_\Theta (\theta)$ corresponds to $f_X (x)$ with respect to new variable $x$. Therefore change of variables for PDF's equation adapted from \cite{bishop2006pattern} is:
+Using the relation $x_k = \alpha + \beta \tan \theta_k$ (given in the brief \cite{vanWyk2024}) and the prior PDF $p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Lambda, \beta, B}(\cdot) = \frac{1}{\pi}$ and the transformation of random variables (notations for random variables defined \hyperref[sec:notation]{\textbf{Solution 8}}). The change of variables  $x = g(y) \Rightarrow \theta_k = g(x_k)$. The function $f(\theta)$ becomes $\tilde{f} = f(g(x))$. The given PDF $f_\Theta (\theta)$ corresponds to $f_X (x)$ with respect to new variable $x$. Therefore change of variables for PDF's equation adapted from \cite{bishop2006pattern} is:
 \begin{equation}
 	p_x(x) = p_\theta(\theta) \left| \frac{d\theta}{dx} \right| = p_\theta (g(x))|g^,(x)|
 \end{equation}
@@ -78,13 +78,31 @@ The plot of the PDF $ p(x_k | \alpha, \beta, B) \Rightarrow f_{X | \Lambda, \mat
 Derive the expression for $p(\alpha | x_k, \beta, B)$.
 
 \subsection*{\underline{Solution 4:}}
-Bayes' Theorem requires: $p(\alpha | x_k, \beta, B) \Rightarrow f_{\Lambda | X, \mathfrak{B},B} (\, \cdot \, | x_k, \beta) = $. But, we can similarly use the same method as proof in \hyperref[sec:proof]{\textbf{Solution 2}}:
+The conditional distribution of $\Lambda(\cdot)$ given $X(\cdot), \, \mathfrak{B}(\cdot)$, Bayes' Theorem requires equation (7) \emph{(notation in \hyperref[sec:notation]{\textbf{Solution 8}})}, from \cite{stanford_lecture20}:
+\begin{equation}
+	f_{\Lambda | X, \mathfrak{B},B} (\, \cdot \, | x_k, \beta) = \frac{f_{X | \Lambda, \mathfrak{B},B}(\, \cdot \, | x_k, \beta)}{f_X(x_k)} =
+	\frac{f_{X | \Lambda, \mathfrak{B},B}(\, \cdot \, | x_k, \beta) f_\Lambda(\cdot)}{f_X(x_k)}
+\end{equation}
+But, we can similarly use the same method as proof in \hyperref[sec:proof]{\textbf{Solution 2}} by setting $\alpha$ as the subject of the formula in the relation $\alpha = -(\beta \tan \theta_k - x_k)$. We get:
+
+\begin{align}
+	f_{\Lambda | X, \mathfrak{B},B} (\, \cdot \, | x_k, \beta) &= f_\Theta (\theta_k) \times \left| \frac{d\theta_k}{d\alpha} \right| = f_\Theta (\theta_k) \times \left| \left(\frac{d\alpha}{d\theta_k} \right)^{-1} \right| \\
+	but, \; \frac{d\alpha}{d\theta} &= -\beta \sec^2 \theta_k \; and \; \left| \left(\frac{d\alpha}{d\theta_k} \right)^{-1} \right| = \frac{1}{\beta \sec^2 \theta_k}
+\end{align}
+as above, substituting (9) in (8) and $f_\Theta (\theta_k) = \frac{1}{\pi}$, and using \hyperref[sec:proof]{\textbf{2}}, we get still get:
+\begin{equation}
+	f_{\Lambda | X, \mathfrak{B},B} (\, \cdot \, | x_k, \beta) = \frac{1}{\pi} \frac{\beta}{(\beta^2 + (x_k - \alpha)^2)} \; \blacksquare
+\end{equation}
 
 \section{QUESTION 5:}
 Finally derive an expression for $p(\alpha | \{x_k\}^N _{k = 1}, \beta, B)$. (State all assumptions.)
 
 \subsection*{\underline{Solution 5:}}
-,
+Assumptions:
+\begin{itemize}
+	\item The prior PDF is given as $f_{\Theta|\Lambda, \mathfrak{B},B}(\cdot) = \frac{1}{\pi}$. And using the transformation of random variables in \hyperref[sec:proof]{\textbf{2}}  becomes equation (6).
+	\item The measurements $\{x_k\}^N _{k = 1}$ 
+\end{itemize}
 
 \section{QUESTION 6:}
 Explain how one obtains the $x$-position of the robot from the result in (5.).
