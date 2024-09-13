@@ -43,7 +43,23 @@ Prove that
 \end{equation}
 \subsection*{\underline{Solution 2:}}
 \label{sec:proof}
-Using the relation $x_k = \alpha + \beta tan \theta_k$ (given in the brief \cite{vanWyk2024}) and the prior PDF $p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Lambda, \beta, B}(\theta) = \frac{1}{\pi}$ and the transformation of random variables (notations for random variables defined \hyperref[sec:notation]{Solution 8})
+Using the relation $x_k = \alpha + \beta \tan \theta_k$ (given in the brief \cite{vanWyk2024}) and the prior PDF $p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Lambda, \beta, B}(\cdot) = \frac{1}{\pi}$ and the transformation of random variables (notations for random variables defined \hyperref[sec:notation]{Solution 8}). The change of variables  $x = g(y) \Rightarrow \theta_k = g(x_k)$. The function $f(\theta)$ becomes $\tilde{f} = f(g(x))$. The given PDF $f_\Theta (\theta)$ corresponds to $f_X (x)$ with respect to new variable $x$. Therefore change of variables for PDF's equation adapted from \cite{bishop2006pattern} is:
+\begin{equation}
+	p_x(x) = p_\theta(\theta) \left| \frac{d\theta}{dx} \right| = p_\theta (g(x))|g^,(x)|
+\end{equation}
+using the correct notation and given $x_k$ relation:
+\begin{align}
+	f_X(x_k) &= f_\Theta (\theta_k) \times \left| \frac{d\theta_k}{dx_k} \right| = f_\Theta (\theta_k) \times \left| \left(\frac{dx_k}{d\theta_k} \right)^{-1} \right| \\
+	&= \frac{1}{\pi} \times \left| \left( \frac{d}{d\theta_k}(\beta \tan \theta_k + \alpha) \right)^{-1}  \right| =\frac{1}{\pi} \times \left| \frac{1}{\beta \sec^2\theta_k} \right| \nonumber\\
+	but \; \sec^2(\theta_k) &= 1 + \tan^2\theta_k \; and \; \tan\theta_k = \frac{x_k - \alpha}{\beta} \; (relation)\\
+	so \; &= 1 + \left(\frac{x_k - \alpha}{\beta} \right)^2 = \frac{\beta^2 + (x_k - \alpha)^2}{\beta^2} \nonumber
+\end{align}
+	
+\begin{align}
+	\therefore \; f_X(x_k) &= \frac{1}{\pi} \times \frac{\beta^2}{\beta(\beta^2 + (x_k - \alpha)^2}\\
+	and, \; so \; f_X(x_k) &\leftrightharpoons f_{X | \Lambda, \mathfrak{B}, B}(\, \cdot \, | \alpha, \beta) \; and \; f_\Theta (\theta_k) \leftrightharpoons f_{\Theta | \Lambda, \beta, B}(\cdot) \nonumber\\
+	thus \; f_{X | \Lambda, \mathfrak{B}, B}(\, \cdot \, | \alpha, \beta) &= \frac{\beta}{\pi (\beta^2 + (x_k - \alpha)^2)} \; \blacksquare
+\end{align}
 
 \section{QUESTION 3:}
 Plot $p(x_k | \alpha, \beta, B)$ and then relate its width at half maximum to the parameters of the PDF.
@@ -51,7 +67,7 @@ Plot $p(x_k | \alpha, \beta, B)$ and then relate its width at half maximum to th
 \subsection*{\underline{Solution 3:}}
 The plot of the PDF $ p(x_k | \alpha, \beta, B) \Rightarrow f_{X | \Lambda, \mathfrak{B}, B}(x_k |\Lambda = \alpha, \mathfrak{B} = \beta)$ is shown in Figure 1 below. The \emph{parameters} are chosen to be $\alpha = 4; \beta = 2$ for $\{x_k \}^ {10} _{k = -10}$. It shows that the maximum value is when $x_k = 4 = \alpha$. At half maximum of \emph{these} paramaters, the width at half maximum of the distribution is $4 = 2 \beta$, half maximum height is $y = 0.1591536$.
 
-\begin{figure}
+\begin{figure}[h]
         \centering
         \includegraphics[scale=0.16]{q03pdfplot.jpg} 
         \caption{Q3 Plot of the PDF $p(x_k | \alpha, \beta, B)$}
@@ -74,7 +90,8 @@ Finally derive an expression for $p(\alpha | \{x_k\}^N _{k = 1}, \beta, B)$. (St
 Explain how one obtains the $x$-position of the robot from the result in (5.).
 
 \subsection*{\underline{Solution 6:}}
-The $x$-position can be obtained by locating the peak of the distribution (plot) and mapping it to the random variable variable axis. Additionally another method is to use Maximum-A-Posterior (MAP). We can also estimate the posterior mean by applying maximum likelyhood solution $\mu_{ML}$ to the mean of the data distribution and the mean of the prior distribution $\mu_0$. This way the estimate will be a compromise between $\mu_0$ and $\mu_{ML}$. The more measurements we use, the more the estimate approximate to $\mu_{ML}$.
+The result in 5. can be used to obtain the position $x$-position of the robot by taking the product of the distributions of each $x_k$ measurement. This is due to the fact that the measurements are independent they are independent.\\
+The $x$-position can also be obtained by locating the peak of the distribution (plot) and mapping it to the random variable variable axis. Additionally another method is to use Maximum-A-Posterior (MAP). We can also estimate the posterior mean by applying maximum likelyhood solution $\mu_{ML}$ to the mean of the data distribution and the mean of the prior distribution $\mu_0$. This way the estimate will be a compromise between $\mu_0$ and $\mu_{ML}$. The more measurements we use, the more the estimate approximate to $\mu_{ML}$.
 
 \section{QUESTION 7:}
 Implement the Bayesian position inference scheme in Matlab. Assume the robot is
