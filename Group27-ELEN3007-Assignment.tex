@@ -34,7 +34,9 @@ Position in an Enclosed Area}}
 \section{QUESTION 1:}  Why does $\theta_k$ not lie between $- \pi$ and $\pi$ for which $p(\theta_k | \alpha, \beta, B)$ would then be $\frac{1}{2\pi}$?
 
 \subsection*{\underline{Solution 1:}}
-The given setup of the problem says that the photodetectors are placed on the x-axis above which the robot is located. Therefore, the signal comes from one(top) side of the axis(horizontal in this case). This thus limits the range of the detectors to only capture collimated flashes within the azimuth $-\frac{\pi}{2}$ to $\frac{\pi}{2}$. . 
+The setup of the problem indicates that the photodetectors are placed along the x-axis, above
+which the robot is located. Therefore, the signal originates from one side of the horizontal axis.
+This limits the range of the detectors to capture only collimated flashes within the azimuth $-\frac{\pi}{2}$ to $\frac{\pi}{2}$. . 
 
 \section{QUESTION 2:}
 Prove that
@@ -43,7 +45,7 @@ Prove that
 \end{equation}
 \subsection*{\underline{Solution 2:}}
 \label{sec:proof}
-Using the relation $x_k = \alpha + \beta \tan \theta_k$ (given in the brief \cite{vanWyk2024}) and the prior PDF $p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Lambda, \beta, B}(\cdot) = \frac{1}{\pi}$ and the transformation of random variables (notations for random variables defined \hyperref[sec:notation]{\textbf{Solution 8}}). The change of variables  $x = g(y) \Rightarrow \theta_k = g(x_k)$. The function $f(\theta)$ becomes $\tilde{f} = f(g(x))$. The given PDF $f_\Theta (\theta)$ corresponds to $f_X (x)$ with respect to new variable $x$. Therefore change of variables for PDF's equation adapted from \cite{bishop2006pattern} is:
+Using the relation $x_k = \alpha + \beta \tan \theta_k$ (given in the brief \cite{vanWyk2024}) and the prior PDF $p(\theta_k | \alpha, \beta, B) = f_{\Theta | \Lambda, \beta, B}(\cdot) = \frac{1}{\pi}$. Then we apply transformation of random variables (notations for random variables defined \hyperref[sec:notation]{\textbf{Solution 8}}). The change of variables  $x = g(y) \Rightarrow \theta_k = g(x_k)$. The function $f(\theta)$ becomes $\tilde{f} = f(g(x))$. The given PDF $f_\Theta (\theta)$ corresponds to $f_X (x)$ with respect to new variable $x$. Therefore change of variables for PDF's equation, adapted from \cite{bishop2006pattern}, leads to the PDF transformation as:
 \begin{equation}
 	p_x(x) = p_\theta(\theta) \left| \frac{d\theta}{dx} \right| = p_\theta (g(x))|g^,(x)|
 \end{equation}
@@ -65,7 +67,7 @@ using the correct notation and given $x_k$ relation:
 Plot $p(x_k | \alpha, \beta, B)$ and then relate its width at half maximum to the parameters of the PDF.
 
 \subsection*{\underline{Solution 3:}}
-The plot of the PDF $ p(x_k | \alpha, \beta, B) \Rightarrow f_{X | \Lambda, \mathfrak{B}, B}(x_k |\Lambda = \alpha, \mathfrak{B} = \beta)$ is shown in Figure 1 below. The \emph{parameters} are chosen to be $\alpha = 4; \beta = 2$ for $\{x_k \}^ {10} _{k = -10}$. It shows that the maximum value is when $x_k = 4 = \alpha$. At half maximum of \emph{these} paramaters, the width at half maximum of the distribution is $4 = 2 \beta$, half maximum height is $y = 0.1591536$.
+The plot of the PDF $ p(x_k | \alpha, \beta, B) \Rightarrow f_{X | \Lambda, \mathfrak{B}, B}(x_k |\Lambda = \alpha, \mathfrak{B} = \beta)$ is shown in Figure 1 below. The \emph{parameters} are chosen to be $\alpha = 4; \beta = 2$ for $\{x_k \}^ {10} _{k = -10}$. It shows that the maximum peak value is when $x_k = 4 = \alpha$. At half maximum of \emph{these} paramaters, the width of the distribution is $4 = 2 \beta$, half maximum height is $y = 0.1591536$.
 
 \begin{figure}[h]
         \centering
@@ -78,16 +80,16 @@ The plot of the PDF $ p(x_k | \alpha, \beta, B) \Rightarrow f_{X | \Lambda, \mat
 Derive the expression for $p(\alpha | x_k, \beta, B)$.
 
 \subsection*{\underline{Solution 4:}}
-The conditional distribution of $\Lambda(\cdot)$ given $X(\cdot), \, \mathfrak{B}(\cdot)$, Bayes' Theorem requires equation (7) \emph{(notation in \hyperref[sec:notation]{\textbf{Solution 8}})}, from \cite{stanford_lecture20}:
+The conditional distribution of $\Lambda(\cdot)$ \underline{given} $X(\cdot), \, \mathfrak{B}(\cdot)$, Bayes' Theorem requires equation (7) \emph{(notation in \hyperref[sec:notation]{\textbf{Solution 8}})}, from \cite{stanford_lecture20}:
 \begin{equation}
 	f_{\Lambda | X, \mathfrak{B},B} (\, \cdot \, | x_k, \beta) = \frac{f_{X | \Lambda, \mathfrak{B},B}(\, \cdot \, | x_k, \beta)}{f_X(x_k)} =
 	\frac{f_{X | \Lambda, \mathfrak{B},B}(\, \cdot \, | x_k, \beta) f_\Lambda(\cdot)}{f_X(x_k)}
 \end{equation}
-But, we can similarly use the same method as proof in \hyperref[sec:proof]{\textbf{Solution 2}} by setting $\alpha$ as the subject of the formula in the relation $\alpha = -(\beta \tan \theta_k - x_k)$. We get:
+But, we can similarly use the same method as proof in \hyperref[sec:proof]{\textbf{Solution 2}} by setting $\alpha$ as the subject of the formula in the relation $\Rightarrow \alpha = -(\beta \tan \theta_k - x_k)$. We get:
 
 \begin{align}
 	f_{\Lambda | X, \mathfrak{B},B} (\, \cdot \, | x_k, \beta) &= f_\Theta (\theta_k) \times \left| \frac{d\theta_k}{d\alpha} \right| = f_\Theta (\theta_k) \times \left| \left(\frac{d\alpha}{d\theta_k} \right)^{-1} \right| \\
-	but, \; \frac{d\alpha}{d\theta} &= -\beta \sec^2 \theta_k \; and \; \left| \left(\frac{d\alpha}{d\theta_k} \right)^{-1} \right| = \frac{1}{\beta \sec^2 \theta_k}
+	but, \; \frac{d\alpha}{d\theta} &= -\beta \sec^2 \theta_k \; \Rightarrow \; \left| \left(\frac{d\alpha}{d\theta_k} \right)^{-1} \right| = \frac{1}{\beta \sec^2 \theta_k}
 \end{align}
 as above, substituting (9) in (8) and $f_\Theta (\theta_k) = \frac{1}{\pi}$, and using \hyperref[sec:proof]{\textbf{2}}, we get still get:
 \begin{equation}
@@ -100,11 +102,11 @@ Finally derive an expression for $p(\alpha | \{x_k\}^N _{k = 1}, \beta, B)$. (St
 \subsection*{\underline{Solution 5:}}
 Assumptions:
 \begin{itemize}
-	\item The prior PDF is given as $f_{\Theta|\Lambda, \mathfrak{B},B}(\cdot) = \frac{1}{\pi}$. And using the transformation of random variables in \hyperref[sec:proof]{\textbf{2}}  becomes equation (6).
-	\item The measurements $\{x_k\}^N _{k = 1}$ are input to the random variable $X_k(\cdot) = \{x_k\}^N _{k = 1}$
-	\item $\{x_k\}^N _{k = 1}$ are independent, and continous.. thus $X_k(\cdot)$ is a continuous random variable.
-	\item The normalisation/marginal probability of observed data/ proportionality factor $f_X(x_k) \approx weird \; integral \backsimeq constant$ in eqaution (7) is discarded $\because$ it does not depend on $\alpha$. It just a scalling factor which doesn't affect the peak point $\alpha$. 
-	\item So we can use the Posterior density $\varpropto$ Likelyhood $\times$ Prior Density \cite{stanford_lecture20}, where the distributions are infered in (10):
+	\item The prior PDF is given as $f_{\Theta|\Lambda, \mathfrak{B},B}(\cdot) = \frac{1}{\pi}$. And using the transformation of random variables in \hyperref[sec:proof]{\textbf{2}} , becomes $f_{X | \Lambda, \mathfrak{B}, B}(\, \cdot \, | \alpha, \beta)$ equation (6).
+	\item The measurements $\{x_k\}^N _{k = 1}$ are input to the random variable $X_k(\cdot) = \{x_k\}^N _{k = 1}$.
+	\item $\{x_k\}^N _{k = 1}$ are independent, and continuous.. thus $X_k(\cdot)$ is a continuous. random variable.
+	\item The normalisation(/marginal probability of observed data/ proportionality factor) $f_X(x_k) \approx weird \; integral \backsimeq constant$ in eqaution (7) is discarded $\because$ it does not depend on $\alpha$. It is just a scalling factor which doesn't affect the peak point $\alpha$. 
+	\item So we can use the \emph{Posterior density $\varpropto$ Likelyhood $\times$ Prior Density} \cite{stanford_lecture20}, where the individual distributions can be inferred from (10):
 		\begin{equation}
 			f_{\Lambda | X, \mathfrak{B},B} (\, \cdot \, | x_k, \beta) \varpropto f_{X | \Lambda, \mathfrak{B}, B}(\, \cdot \, | \alpha, \beta) f_\Lambda(\alpha)
 		\end{equation}
@@ -119,7 +121,7 @@ $\aleph$ is the proportionality factor which may be ignored.
 Explain how one obtains the $x$-position of the robot from the result in (5.).
 
 \subsection*{\underline{Solution 6:}}
-The result in 5. can be used to obtain the position $x$-position of the robot by taking the product of the distributions of each $x_k$ measurement. This is due to the fact that the measurements are independent.\\\\
+The $x$-position of the robot is determined by taking the product of the distributions of each $x_k$, as shown in equation (12) from the result in (5.). This is due to the fact that the measurements are independent.\\ \\
 The $x$-position can also be obtained by locating the peak of the distribution (plot) and mapping it to the random variable variable axis. Additionally another method is to use Maximum-A-Posterior (MAP). We can also estimate the posterior mean by applying maximum likelyhood solution $\mu_{ML}$ to the mean of the data distribution and the mean of the prior distribution $\mu_0$. This way the estimate will be a compromise between $\mu_0$ and $\mu_{ML}$. The more measurements we use, the more the estimate approximate to $\mu_{ML}$.
 
 \section{QUESTION 7:}
@@ -128,12 +130,12 @@ located inside a confined square region of size $10$m $\times$ $10$m. Demonstrat
 estimator by inferring the robot’s $x$-position from the data/measurements $\{ x_k \}^{200} _{k = 1}$ in \emph{BayesData.mat}, with the robot’s $y$-position 4.5 m. Plot the Bayes posterior distribution for the first $N = 1, 2, 5$ and $30$ measurements. For this data, what is your best $x$-position estimate?
 
 \subsection*{\underline{Solution 7:}}
-The Bayesian position inference scheme MATLAB code is attached in Appendix A. The plots are attached in Appendix B as Figure 2 \& 3. The scheme tests the first $N = 1,\; 2, \; 5, and \; 30$. Case 1 is for the first points inside that are detected inside the $10 \times 10$ box are considered. Case 2 does not have restrictions and this uses the first values.\\ \\
-It is noticed that when points outside the box, the estimate $\alpha \approx 5.85$ which is within the box at, close the centre. However, when all points are considered, the mean estimates $\alpha \approx 10.16$ for $N = 30$. But strangely this is outside the box.
-In comparing the distribution for the different $N$-measurements, the distribution seems to move as more measurements are known. \\ \\
-Maximum likelyhood estimate (MLE) solution was applied to the data $\{ x_k \}^{200} _{k = 1}$, attached in Appendix C, and the estimation of $\alpha \approx 7.2287$. Comparing this value to posterior-PDF values inside the box (Figure 2) for N = 2 \& 30, the approximate value of $\alpha$ moves further away from the MLE value.\\\\
+The Bayesian position inference scheme MATLAB code is attached in Appendix A. The plots are attached in Appendix B as Figures 2 \& 3. The scheme tests the first $N = 1,\; 2, \; 5, and \; 30$. Case 1 consideres the first points that are detected inside the $10 \times 10$ box. Case 2 does not have restrictions and thus uses the first values.\\ \\
+It is noticed that when points are restricted to be inside the box, the estimate $\alpha \approx 5.85$, which is within the box, close the midpoint. However, when all points are considered, the mean estimates $\alpha \approx 10.16$ for $N = 30$. But strangely this is outside the box.
+In comparing the distribution for the different $N$-measurements, the distribution peak seems to move, and gets thinner and taller as more measurements are known. \\ \\
+Maximum likelihood estimate (MLE) solution was applied to the data $\{ x_k \}^{200} _{k = 1}$. The code is attached in Appendix C. The estimation of $\alpha \approx 7.2287$. Comparing this value to posterior-PDF values inside the box (Figure 2) for N = 2 \& 30, the approximate value of $\alpha$ moves further away from the MLE value as N increases.\\\\
 After conducting this assignment, we conclude that: 1) The posterior distribution provides a way to quantify the uncertainty in the robot's position estimate. Instead of providing a single “best guess,” Bayesian inference offers a probabilistic distribution over all possible positions, allowing for a richer representation of uncertainty.; 2) The number of measurements significantly affects the shape of the posterior distribution. The more data we have, the better your estimates; 3) In contrast to maximum likelihood estimation (MLE), which finds the single parameter value that maximizes the likelihood, Bayesian inference provides a full posterior distribution, reflecting a range of possible outcomes.\\ \\
-After this analyis, the best estimate of $\alpha$ is $\approx 5.85568$ as obtained from Posterior Infererence for points inside the box and $N = 30$. See Figure 2, Appendix B. $\blacksquare$
+After this analysis, the best estimate of $x$-position, based on posterior inference for points inside the box with $N = 30$, is approximately $\alpha \approx 5.85568$. See Figure 2 in Appendix B. $\blacksquare$
 
 \section{QUESTION 8:}
 The notation presented above, deliberately does \emph{not} follow the conventions your Probs
@@ -157,7 +159,7 @@ The report is presented in homework assignment form(statement and solution). Add
 
 \section{(Bonus) QUESTION 10:}
 Infer both the $x$-position as well as the $y$-position of the robot. Estimate both $\alpha$ and $\beta$ for the PDF in Eq. (1).
-\subsection*{Solution 10:}
+\subsection*{Solution 10:} \emph{(Solution is to be provided.)}
 
 
 
